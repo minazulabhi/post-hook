@@ -3,3 +3,4 @@
 echo "Custom script was executed!"
 
 New line
+New line
