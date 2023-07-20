@@ -19,7 +19,7 @@ touch /home/vagrant/aavamo-assignment/git/post-hook/hook.log
 # Read input from standard input (piped from Git)
 while read oldrev newrev refname; do
   # Check if the received data is related to a push to the master branch
-  if [[ "$refname" == "refs/heads/master" ]]; then
+  if [[ "$refname" == "refs/heads/main" ]]; then
     # Call the post_receive function after a successful push to the master branch
     post_receive
   fi
