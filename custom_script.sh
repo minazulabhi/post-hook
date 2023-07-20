@@ -2,3 +2,4 @@
 
 echo "Custom script was executed!"
 
+New line
