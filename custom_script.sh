@@ -9,3 +9,4 @@ New line
 New line
 New line
 Test commit
+Test commit
