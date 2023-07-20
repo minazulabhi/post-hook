@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo "Custom script was executed!"
+echo "Custom  script was executed!"
 
