@@ -5,6 +5,14 @@
 # Function to run after receiving new commits
 post_receive() {
   echo "New commits were pushed to the repository!" >> /home/vagrant/aavamo-assignment/git/post-hook/hook.log
+
+  # Add some additional debugging info to the log
+  echo "Refname: $refname" >> /home/vagrant/aavamo-assignment/git/post-hook/hook.log
+  echo "Oldrev: $oldrev" >> /home/vagrant/aavamo-assignment/git/post-hook/hook.log
+  echo "Newrev: $newrev" >> /home/vagrant/aavamo-assignment/git/post-hook/hook.log
+  echo "Current directory: $(pwd)" >> /home/vagrant/aavamo-assignment/git/post-hook/hook.log
+  echo "Files in current directory: $(ls -a)" >> /home/vagrant/aavamo-assignment/git/post-hook/hook.log
+
   # Add your custom script or commands here
   # For example, you can run a specific script:
   # /path/to/your/custom_script.sh
@@ -15,13 +23,12 @@ cd /home/vagrant/aavamo-assignment/git/post-hook
 
 # Read input from standard input (piped from Git)
 while read oldrev newrev refname; do
-  # Check if the received data is related to a push to the master branch
+  # Check if the received data is related to a push to the main branch
   if [[ "$refname" == "refs/heads/main" ]]; then
-    # Call the post_receive function after a successful push to the master branch
+    # Call the post_receive function after a successful push to the main branch
     post_receive
   fi
 done
 
 # Exit the script
 exit 0
-
