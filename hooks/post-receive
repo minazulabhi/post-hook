@@ -21,6 +21,12 @@ post_receive() {
 # Change to the repository's root directory
 cd /home/vagrant/aavamo-assignment/git/post-hook
 
+# Create the log file if it doesn't exist (optional, you can keep it if needed)
+# touch /home/vagrant/aavamo-assignment/git/post-hook/hook.log
+
+# Redirect standard error to the log file
+exec 2>> /home/vagrant/aavamo-assignment/git/post-hook/hook.log
+
 # Read input from standard input (piped from Git)
 while read oldrev newrev refname; do
   # Check if the received data is related to a push to the main branch
